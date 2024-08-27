@@ -1,0 +1,105 @@
+.logo-app {
+  border-bottom: transparent !important;
+}
+
+.category-menu {
+  white-space: normal;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-item {
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.nav-link {
+  transition: background-color 0.3s ease;
+  background-color: transparent;
+  border: none !important;
+  outline: none !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.submenu.open {
+  max-height: 1000px;
+  transition: max-height 0.5s ease-in;
+}
+
+.dropdown-item {
+  color: rgb(190, 180, 180) !important;
+  margin-left: 15px;
+  margin-bottom: 5px;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(224, 216, 216, 0.751);
+  color: #000 !important;
+  width: 200px;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: rgba(29, 199, 234, 0.7);
+  width: 240px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  color: #000 !important;
+}
+
+.icon-margin {
+  margin-right: 8px;
+}
+
+/* SUB MENU */
+.submenu-inbound,
+.submenu-outbound {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.submenu-inbound.open,
+.submenu-outbound.open {
+  max-height: 1000px;
+  transition: max-height 0.5s ease-in;
+}
+
+.submenu-inbound.nav-link,
+.submenu-outbound.nav-link {
+  padding-left: 30px;
+}
+
+.submenu-inbound.nav-link:hover,
+.submenu-outbound.nav-link:hover {
+  background-color: rgba(224, 216, 216, 0.751);
+  color: #000 !important;
+}
+
+.submenu-inbound.nav-link.active,
+.submenu-outbound.nav-link.active {
+  background-color: rgba(29, 199, 234, 0.7);
+  width: 240px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  color: #000 !important;
+}
+
+.submenu-inbound .active,
+.submenu-outbound .active {
+  background-color: rgba(29, 199, 234, 0.7);
+  width: 240px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  color: #000 !important;
+}

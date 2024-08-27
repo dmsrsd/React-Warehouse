@@ -1,0 +1,89 @@
+import React, { useRef, useState } from "react";
+import { Button, Table, Modal, Form } from "react-bootstrap";
+import TableUserComponent from "../../components/Table/SCM-Planner-Table/TableApprovalCMO";
+import "../../styling/Table-Custom.css";
+
+function ApprovalCMO() {
+  const tableRef = useRef(null);
+
+  const [showModal, setShowModal] = useState(false);
+  const [rejectReason, setRejectReason] = useState("");
+
+  const handleReject = () => {
+    setShowModal(true);
+  };
+
+  const handleModalClose = () => {
+    setShowModal(false);
+  };
+
+  const handleReasonChange = (e) => {
+    setRejectReason(e.target.value);
+  };
+
+  const handleRejectSubmit = () => {
+    // Call API or perform action to reject with reason
+    console.log(`Reject reason: ${rejectReason}`);
+    setShowModal(false);
+  };
+
+  return (
+    <>
+      <div className="container">
+        <h4 className="text-center mb-4">Approval CMO</h4>
+
+        <TableUserComponent tableRef={tableRef} />
+
+        <Table bordered striped responsive id="table-react" className="display">
+          <thead>
+            <tr>
+              <th className="id"></th>
+              <th className="jenisRokok">Jenis Rokok</th>
+              <th className="quantity">Quantity</th>
+              <th className="remarks">Remarks</th>
+            </tr>
+          </thead>
+        </Table>
+
+        <div className="d-flex justify-content-center mt-5 mb-2">
+          <Button className="mr-2">Approve</Button>
+          <Button variant="danger" onClick={handleReject}>
+            Reject
+          </Button>
+        </div>
+      </div>
+
+      <Modal show={showModal} onHide={handleModalClose}>
+        <Modal.Header>
+          <Modal.Title>Reject Reason</Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body>
+          <Form>
+            <Form.Group controlId="rejectReason">
+              <Form.Label>Reason for rejection:</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={5}
+                value={rejectReason}
+                onChange={handleReasonChange}
+                className="form-control-lg"
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleModalClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleRejectSubmit}>
+            Submit
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
+}
+
+export default ApprovalCMO;

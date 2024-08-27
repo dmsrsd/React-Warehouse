@@ -1,0 +1,97 @@
+import { useForm } from "react-hook-form";
+import { Form, Button, FormControl, Modal } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+
+export default function ListSalesOrderSCM() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const [showModal, setShowModal] = useState(false);
+
+  const onSubmit = (data) => console.log(data);
+
+  const handleCloseModal = () => setShowModal(false);
+  const handleShowModal = () => setShowModal(true);
+
+  return (
+    <>
+      <div className="container mt-4">
+        <h3 className="mb-4">Create Outbound Planning</h3>
+
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <Form.Group controlId="sku_item" className="mt-3">
+            <Form.Label>SKU</Form.Label>
+            <Form.Control
+              type="text"
+              {...register("sku_item", { required: true, min: 1 })}
+            />
+            {errors.sku_item && (
+              <p className="alert alert-danger">SKU Rokok is required !</p>
+            )}
+          </Form.Group>
+
+          <Form.Group controlId="quantity" className="mt-3">
+            <Form.Label>Total Dus</Form.Label>
+            <Form.Control
+              type="number"
+              {...register("quantity", { required: true, min: 1 })}
+            />
+            {errors.quantity && (
+              <p className="alert alert-danger">Quantity Rokok is required !</p>
+            )}
+          </Form.Group>
+
+          <Form.Group controlId="remarks" className="mt-3">
+            <Form.Label>Remarks</Form.Label>
+            <Form.Control as="textarea" {...register("remarks")} />
+          </Form.Group>
+
+          <Button
+            variant="primary"
+            type="button"
+            className="mt-3"
+            onClick={handleShowModal}
+          >
+            Next
+          </Button>
+        </Form>
+      </div>
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>PickUp Request</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group controlId="vehicle" className="mt-3">
+              <Form.Label>Tujuan</Form.Label>
+              <Form.Control as="select">
+                <option value="">Pilih Tujuan</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+              </Form.Control>
+            </Form.Group>
+            
+            <Form.Group controlId="deliveryDate" className="mt-3">
+              <Form.Label>Tanggal Pengiriman</Form.Label>
+              <Form.Control type="date" />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+
+        <Modal.Footer className="mt-5">
+          <Button variant="danger" onClick={handleCloseModal}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleCloseModal}>
+            Send Request
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
+}

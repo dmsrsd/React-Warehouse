@@ -1,0 +1,58 @@
+/* Table DataTable Adjust */
+.dt-bootstrap5 {
+  margin-top: 100px;
+}
+
+/* th dalam DataTable */
+table.dataTable thead th {
+  font-size: 20px !important;
+  font-weight: bold !important;
+  text-transform: capitalize !important;
+  text-align: center !important;
+  color: black;
+}
+
+/* Pagination DataTable */
+.dt-paging {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Sarchbox DataTable */
+.dt-search {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+}
+
+/* Length Data Displat DataTable */
+.dt-length {
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 20px;
+}
+
+.form-select {
+  width: 200px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+/* Button Exports DataTable */
+.buttons-csv {
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+/* Modal */
+.modal-dialog {
+  margin-bottom: 50vh; /* Adjust this value as needed */
+}
+
+/* SELECTED CHECKBOX */
+.form-check-input {
+  margin: -10px;
+}
